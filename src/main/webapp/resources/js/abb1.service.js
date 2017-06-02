@@ -373,7 +373,7 @@ function multiplexMainTimetableService(data, date) {
             if (disShowList[i].movie_seq == timetableList[j].movSeq && date == timetableList[j].shoShowDate) {
                 movie_title = timetableList[j].movTitle;
                 view += '      <div>' +
-                    '         <span><strong>' + movie_title + '</strong></span><a id="' + disShowList[i].movie_seq + '" class="goMD" href="javascript:void(0)"><img src="' + $.context() + '/resources/img/icon/movieLink.png" alt="" /></a>' +
+                    '         <span class="abb1_multiplex_movie_title"><strong>' + movie_title + '</strong></span><a id="' + disShowList[i].movie_seq + '" class="goMD" href="javascript:void(0)"><img src="' + $.context() + '/resources/img/icon/movieLink.png" alt="" /></a>' +
                     '      </div>' +
                     '      <ul>';
                 break;
@@ -431,7 +431,12 @@ function generateReservationKey(o) {
 
 function getTodayValue() {
     var today = abb1.util.datetime();
-    var todayval = today.substring(0, 4) + '-' + today.substring(4, 6) + '-' + today.substring(6, 8);
+    var todayval = '';
+    if(today.substring(6,8)*1>9){
+   todayval = today.substring(0, 4) + '-' + today.substring(4, 6) + '-' + today.substring(6, 8);
+    } else {
+   todayval = today.substring(0, 4) + '-' + today.substring(4, 6) + '-0' + today.substring(6, 8);
+    }
     return todayval;
 }
 

@@ -244,8 +244,8 @@ mov.name_actor AS movNameActor,
 mov.trailer_main AS movTrailerMain 
 FROM Review r, Movie mov WHERE r.movie_seq = mov.seq;
 
-INSERT INTO Notice(file, title, content, reg_date, hits) VALUES ('notice_sample.jpg','개인정보 이용내역 안내','롯데시네마 개인정보 이용내역 안내드립니다.','2017-04-17','185');
-INSERT INTO Notice(file, title, content, reg_date, hits) VALUES ('default','2017 DU - ATHLON RACE 개최에 따른 교통 통제 안내','안녕하십니까, 롯데시네마 인천아시아드관입니다.<br/><br/>항상 저희 인천아시아드관을 사랑해 주시는 고객 여러분께 진심으로 감사드립니다.<br/><br/>2017 DU - ATHLON RACE 'AWAKEN INCHEON' 경기 일정으로 <br/><br/>2017년 5월 28일 (일)  09:10 ~ 10:00 까지 롯데시네마 주차장 진입로가 통제됩니다.<br/><br/>참고하시어 이용에 불편 없으시길 바랍니다.<br/><br/>아울러 통제가 끝나는 10:00 이후부터 영화 상영이 시작되오니 참고 부탁드립니다.<br/><br/>경기는 13:00까지 진행될 예정이오니 통제가 끝난 후 다소 혼잡하더라도<br/><br/>고객 여러분들의 너른 양해 부탁드립니다.<br/><br/>감사합니다.','2017-05-18','18882');
+INSERT INTO Notice(file, title, content, reg_date, hits) VALUES ('notice_sample.jpg','개인정보 이용내역 안내','롯데시네마 개인정보 이용내역 안내드립니다.','2017-05-29','185');
+INSERT INTO Notice(file, title, content, reg_date, hits) VALUES ('default','2017 DU - ATHLON RACE 개최에 따른 교통 통제 안내','안녕하십니까, 롯데시네마 인천아시아드관입니다.<br/><br/>항상 저희 인천아시아드관을 사랑해 주시는 고객 여러분께 진심으로 감사드립니다.<br/><br/>2017 DU - ATHLON RACE 'AWAKEN INCHEON' 경기 일정으로 <br/><br/>2017년 5월 28일 (일)  09:10 ~ 10:00 까지 롯데시네마 주차장 진입로가 통제됩니다.<br/><br/>참고하시어 이용에 불편 없으시길 바랍니다.<br/><br/>아울러 통제가 끝나는 10:00 이후부터 영화 상영이 시작되오니 참고 부탁드립니다.<br/><br/>경기는 13:00까지 진행될 예정이오니 통제가 끝난 후 다소 혼잡하더라도<br/><br/>고객 여러분들의 너른 양해 부탁드립니다.<br/><br/>감사합니다.','2017-06-01','235');
 
 INSERT INTO Movie(title, count, grade, released, info, synopsys, male_p, female_p, trailer_url, trailer_main, pic_main, pic_director, name_director, pic_actor, name_actor) 
 VALUES ('보안관','11','15','2017-05-03','드라마','과잉 수사로 잘리고 낙향한 전직 형사 대호(이성민)<br/>보안관을 자처하며 바다만큼 드넓은 오지랖으로 고향 ‘기장’ 을 수호한다.<br/>평화롭던 동네에 비치타운 건설을 위해 성공한 사업가 종진(조진웅)이 서울에서 내려온 그때,<br/>인근 해운대에 마약이 돌기 시작한다.<br/>종진의 모든 행보가 의심스러운 대호는 그를 마약사범으로 의심해 처남 덕만(김성균)을 조수로 ‘나 홀로 수사’에 나서지만 민심은 돈 많고 세련된 종진에게로 옮겨간 지 오래…<br/><br/>두고 봐라, 이래 당하고만 있겠나. 게임은 인자 시작이다!','0','0','https://www.youtube.com/embed/nRVuV8nuOmQ','0','movie_poster_0.png','director_0.jpg','김형주','actor_0.png','이성민');

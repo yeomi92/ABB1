@@ -3395,6 +3395,34 @@ abb1.controller = (function() {
                     multiplexMain(seq);
                 });
 
+                $('.goMap').on('click', function() {
+                    alert('미구현');
+                   /* var goMap = $.magnificPopup.open({
+                        items : {
+                           src : '<div class="white-popup">'
+                              +'<p id="emailAuthContent" class="kal-jh-auth-head-text">스케줄 선택 페이지로 돌아가시겠습니까 ?</p>'
+                              +'<div class="kal-jh-auth-wrapper">'
+                              +   '<button id="goBack" class="" onSubmit="return check();">X</button>'
+                              +   '<button id="goBackNo" class="kal-jh-gobacksche-submit-btn" onSubmit="return check();">아니오</button>'
+                              +'</div>'
+                              +'</div>',
+                           type: 'inline'
+                           },
+                           fixedContentPos: true,  
+                             fixedBgPos: true,  
+                             overflowY: 'auto',  
+                             closeBtnInside: true,  
+                             preloader: false,
+                             midClick: true,  
+                             removalDelay: 300,  
+                             closeOnBgClick: false
+                     });
+                   $('#goBackYes').on('click',function(){
+                      alert('돌아가기');
+                      $.magnificPopup.close();
+                   });*/
+                });
+                
                 $('.goMD').on('click', function() {
                     var id = $(this).attr('id');
                     movieDetail(id);
