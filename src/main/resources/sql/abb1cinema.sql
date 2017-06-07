@@ -348,6 +348,8 @@ INSERT INTO Showing(start_time, end_time, show_date, price, movie_seq, theater_s
 INSERT INTO Showing(start_time, end_time, show_date, price, movie_seq, theater_seq) VALUES ('14:00', '14:10', '2017-05-31', '10000', 9, 2);
 INSERT INTO Showing(start_time, end_time, show_date, price, movie_seq, theater_seq) VALUES ('15:00', '15:10', '2017-05-31', '10000', 9, 3);
 
+update Showing set show_date='2017-06-05' where show_date='2017-05-29';
+
 
 -- 남성 예매 
 INSERT INTO Reservation(id, reg_date, canceled, price, hcount, customer_id, showing_seq) VALUES ('1-1-1800-A01','2017-05-29','N','10000', '1','a',1);
@@ -610,3 +612,4 @@ select trailer_main from movie;
 update movie set trailer_main=1 where seq=8;
 
 
+SELECT * FROM CUSTOMER WHERE ID='yhs9292'

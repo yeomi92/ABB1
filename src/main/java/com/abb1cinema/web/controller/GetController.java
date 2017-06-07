@@ -114,8 +114,12 @@ public class GetController {
 		Map<String, Object> map = new HashMap<>();
 		map.put("column1", "movie_seq");
 		List<Showing> disShowList = getService.getDistinctShowingList(map);
+		map.put("key1", "resCanceled");
+		map.put("value1", "N");
+		List<Information> infoList= getService.getInfoList(map);
+		map.clear();
 		map.put("dis_show_list", disShowList);
-		map.put("info_list", getService.getInfoList(map));
+		map.put("info_list", infoList);
 		map.put("timetable_list", getService.getTimetableList(map));
 		map.put("success", "SUCCESS!!");
 		return map;
@@ -241,11 +245,15 @@ public class GetController {
 	public @ResponseBody Map<?,?> getMultiplex(@PathVariable String seq) throws Exception {
 		logger.info("getMultiplex() {}","ENTER");
 		Map<String, Object> map = new HashMap<>();
+		map.put("key1", "resCanceled");
+		map.put("value1", "N");
+		List<Information> infoList= getService.getInfoList(map);
+		map.clear();
+		map.put("info_list", infoList);
 		map.put("column1", "movie_seq");
 		List<Showing> disShowList = getService.getDistinctShowingList(map);
 		map.put("dis_show_list", disShowList);
 		map.put("theater_list", getService.getTheaterList(map));
-		map.put("info_list", getService.getInfoList(map));
 		map.put("timetable_list", getService.getTimetableList(map));
 		map.put("group", "Theater");
 		map.put("key", "multiplex_seq");

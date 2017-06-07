@@ -367,6 +367,14 @@ function multiplexMainTimetableService(data, date) {
     var disShowList = data.dis_show_list;
     var timetableList = data.timetable_list;
     var view = '';
+    
+    var currentTime = getCurrentTime();
+    var hour = currentTime.split(':')[0] * 1;
+    var minute = currentTime.split(':')[1] * 1;
+
+    var className = 'goR';
+    
+    
     for (var i = 0; i < disShowList.length; i++) {
         var movie_title = '';
         for (var j = 0; j < timetableList.length; j++) {
@@ -379,6 +387,7 @@ function multiplexMainTimetableService(data, date) {
                 break;
             }
         }
+        
         for (var j = 0; j < timetableList.length; j++) {
             if (disShowList[i].movie_seq == timetableList[j].movSeq && date == timetableList[j].shoShowDate) {
                 var json = {
@@ -386,16 +395,27 @@ function multiplexMainTimetableService(data, date) {
                     timetableList: timetableList,
                     j: j
                 };
+                
+                if (getTodayValue() === date) {
+                    if (timetableList[j].shoStartTime.split(':')[0] * 1 > hour) {
+                        className = 'goR';
+                    } else if (timetableList[j].shoStartTime.split(':')[0] * 1 == hour && timetableList[j].shoStartTime.split(':')[1] * 1 > minute) {
+                        className = 'goR';
+                    } else {
+                        className = 'cannot';
+                    }
+                }
+                
                 var resCount = multiplexMainMovielist(json).resCount;
-                view += '   <a id="rv' + timetableList[i].shoSeq + '" class="goR" href="#"><li><table>' +
+                view += '   <a id="rv' + timetableList[j].shoSeq + '" class="'+className+'" href="#"><li><table>' +
                     '      <tr>' +
-                    '      <td>' + timetableList[i].theName + '</td>' +
+                    '      <td>' + timetableList[j].theName + '</td>' +
                     '      </tr>' +
                     '      <tr>' +
-                    '      <td><strong>' + timetableList[i].shoStartTime + '</strong></td>' +
+                    '      <td><strong>' + timetableList[j].shoStartTime + '</strong></td>' +
                     '      </tr>' +
                     '      <tr>' +
-                    '      <td> ' + resCount + '석 / ' + timetableList[i].theTotalSeat + '석</td>' +
+                    '      <td> ' + resCount + '석 / ' + timetableList[j].theTotalSeat + '석</td>' +
                     '      </tr>' +
                     '   </table></li></a>';
             }

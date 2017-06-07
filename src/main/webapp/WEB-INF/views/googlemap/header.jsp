@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<div id="header">
+<div id="header" style="z-index: -2;">
    <div class="abb1_no_padding abb1_width_100 abb1_text_center">
       <div style="margin: 0 auto;">
          <a href="/web"><img src="${context}/resources/img/common/main_logo.png" alt=""/></a>
@@ -20,3 +20,4 @@
       </div>
    </nav>
 </div>
+<div id="z_header" style="position: absolute;width:100%;z-index: -1;background-color: black;"></div>

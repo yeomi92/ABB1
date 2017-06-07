@@ -3323,10 +3323,10 @@ abb1.controller = (function() {
                                     dataType: "json",
                                     contentType: "application/json",
                                     success: function(data) {
-                                        // RESERVATION SUCCES AND CALLBACK LOGIC AFTER TEST, CHANGE HERE
-                                        //alert('성공적으로 예매되었습니다. 마이페이지로 이동합니다.');
-                                        //customerMypage();
-                                        reservationSeat(shoSeq);
+                                        //RESERVATION SUCCES AND CALLBACK LOGIC AFTER TEST, CHANGE HERE
+                                        alert('성공적으로 예매되었습니다. 마이페이지로 이동합니다.');
+                                        customerMypage();
+                                        //reservationSeat(shoSeq);
                                     },
                                     error: function(xhr, status, msg) {
                                         alert(msg);
@@ -3395,9 +3395,13 @@ abb1.controller = (function() {
                     multiplexMain(seq);
                 });
 
+                $('.cannot').on('click', function() {
+                    alert('상영시간이 지났습니다. 예매가 불가능 합니다.');
+                });
+                
                 $('.goMap').on('click', function() {
                     alert('미구현');
-                   /* var goMap = $.magnificPopup.open({
+                    var goMap = $.magnificPopup.open({
                         items : {
                            src : '<div class="white-popup">'
                               +'<p id="emailAuthContent" class="kal-jh-auth-head-text">스케줄 선택 페이지로 돌아가시겠습니까 ?</p>'
@@ -3420,7 +3424,7 @@ abb1.controller = (function() {
                    $('#goBackYes').on('click',function(){
                       alert('돌아가기');
                       $.magnificPopup.close();
-                   });*/
+                   });
                 });
                 
                 $('.goMD').on('click', function() {
@@ -3431,6 +3435,7 @@ abb1.controller = (function() {
                 $('.goR').on('click', function() {
                     var id = $(this).attr('id');
                     var shoSeq = id.split('rv')[1];
+                    console.log(shoSeq);
                     reservationSeat(shoSeq);
                 });
             },
@@ -3676,6 +3681,7 @@ abb1.controller = (function() {
                 
                 var orderByRes = '<ul>';
                 for (var i = 0; i < 4; i++) {
+                	console.log(movieSort(statJsonArr)[i]);
                     var t = movieSort(statJsonArr)[i];
                     orderByRes += orderService(t, total);
                 }
