@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.abb1cinema.web.mapper.Mapper">
    <!-- CREATE -->
    <insert id="registerCustomer">
@@ -24,7 +22,8 @@
    VALUES (#{spectator},#{gpa},#{content},#{reg_date},#{customer_id},#{movie_seq});
    </insert>
    <insert id="registerMovie" parameterType="hashMap">
-   INSERT INTO Movie(title, count, grade,released, info, synopsys, male_p,female_p, trailer_url,trailer_main,pic_main, pic_director, name_director, pic_actor, name_actor) VALUES (#{title},'0',#{grade},#{released},#{info},#{synopsys},'0','0',#{trailer_url},#{trailer_main},#{pic_main},#{pic_director},#{name_director},#{pic_actor},#{name_actor})
+   INSERT INTO Movie(title, count, grade,released, info, synopsys, male_p,female_p, trailer_url,trailer_main,pic_main, pic_director, name_director, pic_actor, name_actor)
+    VALUES (#{title},'0',#{grade},#{released},#{info},#{synopsys},'0','0',#{trailer_url},#{trailer_main},#{pic_main},#{pic_director},#{name_director},#{pic_actor},#{name_actor})
    </insert>
    <insert id="registerNotice" parameterType="hashMap">
    INSERT INTO Notice(file, title, content, reg_date, hits) 

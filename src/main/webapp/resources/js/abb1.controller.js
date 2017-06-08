@@ -941,6 +941,7 @@ abb1.controller = (function() {
                     success: function(data) {
                         emailRandom = data.random;
                         alert('해당 email로 인증번호를 전송했습니다.');
+                        console.log(emailRandom);
                     },
                     error: function(xhr, status, msg) {
                         alert('실패 이유:' + msg);
@@ -951,7 +952,9 @@ abb1.controller = (function() {
             }
         });
         $('#confirm').on('click', function() {
+        	console.log('confirm들어옴');
             if (emailRandom != '' && $('#check_email').val() == emailRandom && checkName($('#name').val())) {
+            	console.log('confirm if문 들어옴');
                 $.ajax({
                     url: $.context() + "/get/customer/find",
                     method: "POST",
@@ -962,10 +965,16 @@ abb1.controller = (function() {
                     dataType: "json",
                     contentType: "application/json",
                     success: function(data) {
+                    	console.log('success');
                         var cname = $('#name').val();
                         var cemail = $('#email').val();
+                        console.log('cname: '+cname+', cemail: '+cemail+', data.customer: ');
+                        console.log(data.customer);
                         if (data.customer.name == cname && data.customer.email == cemail) {
+                        	console.log('if문');
                             customerFindIdSuccess(data.customer);
+                        }else{
+                        	alert('해당 정보가 존재하지 않습니다.');
                         }
                     },
                     error: function(xhr, status, msg) {
@@ -3092,7 +3101,7 @@ abb1.controller = (function() {
             disableMovieListService(disShowList, selectedMovieSeq);
             $('#reservation_time').html('<h4>' + checkMultiplex(1) + '</h4><div id="movie_time_line" class="abb1_padding_15">' +
                 '<div class="abb1_padding_bottom_20">' +
-                '   <span id="movieTitle' + selectedMovieSeq + '" class="abb1_font_size_25"><strong id="movieName"></strong></span><a id="movieDetail" href="javascript:void(0)"><img src="/web/resources/img/icon/movieLink.png" alt=""></a>' +
+                '   <span id="movieTitle' + selectedMovieSeq + '" class="abb1_font_size_25"><strong id="movieName"></strong></span><a id="movieDetail" href="javascript:void(0)"><img src="'+$.context()+'/resources/img/icon/movieLink.png" alt=""></a>' +
                 '</div>' +
                 '<ul id="movie_timeline_ul" class="abb1_ul_inline"></ul>');
             var timetableView = '';

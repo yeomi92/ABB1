@@ -63,7 +63,6 @@ public interface Mapper {
    public List<Timetable> getAdminShowList(Map<?,?> map) throws Exception;
    public List<Statistic> getStatistic(Map<?,?> map) throws Exception;
    public List<Customer> getAdminCustomerList(Map<?,?> map) throws Exception;
-   //혜선
    public List<Information> getGenderMovieRank(Map<?,?> map) throws Exception;
    
    // UPDATE

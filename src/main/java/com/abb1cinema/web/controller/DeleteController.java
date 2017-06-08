@@ -22,6 +22,16 @@ public class DeleteController {
 	public @ResponseBody Map<?,?> delete(@RequestBody Map<String,String> paramMap) throws Exception {
 		logger.info("DeleteController delete() {}","ENTER");
 		Map<String,Object> map = new HashMap<>();
+		map.put("group", "Reservation");
+		map.put("key", "customer_id");
+		map.put("value", paramMap.get("id"));
+		Integer d=deleteService.delete(map);
+		map.put("group", "Article");
+		d=deleteService.delete(map);
+		map.put("group", "Review");
+		d=deleteService.delete(map);
+		map.put("group", "Comment");
+		d=deleteService.delete(map);
 		map.put("id", paramMap.get("id"));
 		Integer delete=deleteService.deleteCustomer(map);
 		map.put("result", delete);
